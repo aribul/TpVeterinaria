@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Especie.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Animal.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Repositorios\AnimalDAO.cs" />
     <Compile Include="Repositorios\ClienteDAO.cs" />
     <Compile Include="Repositorios\DAOConexion.cs" />
+    <Compile Include="Repositorios\EspecieDAO.cs" />
     <Compile Include="Repositorios\UsuarioDAO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
