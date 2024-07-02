@@ -8,13 +8,13 @@ namespace Servicios.VeterinariaServices
 {
     public class Cliente
     {
-        public int dni { get; set; }
-        public string nombre { get; set; }
+        public string Dni { get; set; }
+        public string Nombre { get; set; }
 
-        public Cliente(int dni, string nombre)
+        public Cliente(string dni, string nombre)
         {
-            this.dni = dni;
-            this.nombre = nombre;
+            Dni = dni;
+            Nombre = nombre;
         }
 
         public Cliente()

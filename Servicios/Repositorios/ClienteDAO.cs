@@ -34,8 +34,8 @@ namespace Servicios.Repositorios
                 //crea usuario por cada fila
                 Cliente nuevoCliente = new Cliente()
                 {
-                    dni = lector.GetInt32(0),
-                    nombre = lector.GetString(1)
+                    Dni = lector.GetString(0),
+                    Nombre = lector.GetString(1)
 
                 };
 
@@ -46,18 +46,26 @@ namespace Servicios.Repositorios
             return list;
         }
 
-        //Insertar nuevo usuario a la base
-        public void insert(Cliente clienteNuevo)
+
+        public bool Insert(Cliente clienteNuevo)
         {
 
-            string query = $"insert into usuario (dni, nombre) values ( '{clienteNuevo.dni}' , '{clienteNuevo.nombre}')";
 
-            IDbConnection conexion = this.prepararConexion();
+            string query = $"insert into usuario (dni, nombre) values ( '{clienteNuevo.Dni}' , '{clienteNuevo.Nombre}')";
 
-            IDbCommand comando = conexion.CreateCommand();
+            using (IDbConnection conexion = this.prepararConexion())
+            {
 
-            comando.CommandText = query;
+                IDbCommand comando = conexion.CreateCommand();
+
+                comando.CommandText = query;
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                return filasAfectadas > 0;
+
+            }
+
         }
-
     }
 }

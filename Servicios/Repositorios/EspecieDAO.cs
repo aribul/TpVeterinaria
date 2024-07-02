@@ -1,5 +1,4 @@
 ﻿using Servicios.Models;
-using Servicios.VeterinariaServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Servicios.Repositorios
 {
-    internal class EspecieDAO : DAOConexion
+    public class EspecieDAO : DAOConexion
     {
         public List<Especie> getAll()
         {
@@ -33,10 +32,10 @@ namespace Servicios.Repositorios
                 //crea usuario por cada fila
                 Especie nuevaEspecie = new Especie()
                 {
-                    idEspecie = lector.GetInt32(0),
-                    nombre = lector.GetString(1),
-                    edadMadurez = lector.GetInt32(2),
-                    peso = lector.GetDouble(3)
+                    IdEspecie = lector.GetInt32(0),
+                    Nombre = lector.GetString(1),
+                    EdadMadurez = lector.GetInt32(2),
+                    Peso = lector.GetDouble(3)
 
                 };
 
@@ -48,19 +47,25 @@ namespace Servicios.Repositorios
         }
 
         //Insertar nuevo usuario a la base
-        public void insert(Especie nEspecie)
+        public bool Insert(Especie nEspecie)
         {
 
-            string query = $"insert into animales (idEspecie, nombreEspecie, edadMadurez, pesoPromedio) VALUES ('{nEspecie.idEspecie}', {nEspecie.nombre}, {nEspecie.edadMadurez}, {nEspecie.peso})";
+            
+            string query = $"insert into animales (idEspecie, nombreEspecie, edadMadurez, pesoPromedio) VALUES ('{nEspecie.IdEspecie}', {nEspecie.Nombre}, {nEspecie.EdadMadurez}, {nEspecie.Peso})";
+            
+            using (IDbConnection conexion = this.prepararConexion())
+            {
 
-            IDbConnection conexion = this.prepararConexion();
+                IDbCommand comando = conexion.CreateCommand();
 
-            IDbCommand comando = conexion.CreateCommand();
+                comando.CommandText = query;
 
-            comando.CommandText = query;
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                return filasAfectadas > 0;
+
+            }
+
         }
-
-
-
     }
 }

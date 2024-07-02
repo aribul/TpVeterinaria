@@ -1,7 +1,8 @@
 CREATE TABLE Clientes (
-    DNI INT PRIMARY KEY,
+    DNI VARCHAR (10) PRIMARY KEY,
     Nombre VARCHAR(100) NOT NULL
 );
+
 CREATE TABLE Especies (
     IdEspecie INT PRIMARY KEY IDENTITY(1,1),
     NombreEspecie VARCHAR(100) NOT NULL,
@@ -23,3 +24,5 @@ CREATE TABLE Usuarios (
     NombreUsuario VARCHAR(100) NOT NULL UNIQUE,
     Clave VARCHAR(100) NOT NULL
 );
+
+select * from Usuarios

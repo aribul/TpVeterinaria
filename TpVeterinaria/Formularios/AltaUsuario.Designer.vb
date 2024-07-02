@@ -20,7 +20,7 @@ Partial Class AltaUsuario
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.usuarioNuevo = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -85,7 +85,7 @@ Partial Class AltaUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(355, 162)
+        Me.ClientSize = New System.Drawing.Size(320, 154)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.lblValidarNuevoUsuario)
         Me.Controls.Add(Me.txtContrasenia)

@@ -1,4 +1,5 @@
-﻿using Servicios.VeterinariaServices;
+﻿using Servicios.Models;
+using Servicios.VeterinariaServices;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -32,11 +33,11 @@ namespace Servicios.Repositorios
                 //crea usuario por cada fila
                 Animal nuevoAnimal = new Animal()
                 {
-                    nombreAnimal = lector.GetString(1),
-                    peso = lector.GetDouble(2),
-                    edad = lector.GetInt32(3), 
-                    dniCliente = lector.GetInt32(4),
-                    idEspecie = lector.GetInt32(5),
+                    NombreAnimal = lector.GetString(1),
+                    Peso = lector.GetDouble(2),
+                    Edad = lector.GetInt32(3), 
+                    DniCliente = lector.GetInt32(4),
+                    IdEspecie = lector.GetInt32(5),
 
                 };
 
@@ -48,16 +49,80 @@ namespace Servicios.Repositorios
         }
 
         //Insertar nuevo usuario a la base
-        public void insert(Animal aNuevo)
+        public bool Insert(Animal nAnimal)
         {
 
-            string query = $"insert into animales (nombreAnimal, peso, edad, dnicliente, cspecieID) VALUES ('{aNuevo.nombreAnimal}', {aNuevo.peso}, {aNuevo.edad}, {aNuevo.dniCliente}, {aNuevo.idEspecie})";
 
-            IDbConnection conexion = this.prepararConexion();
+            string query = $"insert into animales (nombreAnimal, peso, edad, dnicliente, cspecieID) VALUES ('{nAnimal.NombreAnimal}', {nAnimal.Peso}, {nAnimal.Edad}, {nAnimal.DniCliente}, {nAnimal.IdEspecie})";
 
-            IDbCommand comando = conexion.CreateCommand();
+            using (IDbConnection conexion = this.prepararConexion())
+            {
 
-            comando.CommandText = query;
+                IDbCommand comando = conexion.CreateCommand();
+
+                comando.CommandText = query;
+
+                int filasAfectadas = comando.ExecuteNonQuery();
+
+                return filasAfectadas > 0;
+
+            }
+
+        }
+
+        public double pesoMinimo(int edadMinima, int edadMaxima)
+        {
+            double pesoMin = 0;
+            foreach (Animal animal in this.getAll())
+            {
+                if (animal.Edad > edadMinima & animal.Edad < edadMaxima)
+                {
+                    if (pesoMin == 0 || animal.Peso <= pesoMin)
+                    {
+                        pesoMin = animal.Peso;
+                    }
+                }
+            }
+            return pesoMin;
+        }
+
+        public double pesoMaximo(int edadMinima, int edadMaxima)
+        {
+            double pesoMax = 0;
+            foreach (Animal animal in this.getAll())
+            {
+                if (animal.Edad > edadMinima & animal.Edad < edadMaxima)
+                {
+                    if (pesoMax == 0 || animal.Peso >= pesoMax)
+                    {
+                        pesoMax = animal.Peso;
+                    }
+                }
+            }
+            return pesoMax;
+        }
+
+        public double promedioPeso(int edadMinima, int edadMaxima)
+        {
+            double promedioPeso = 0;
+            double pesoTotal = 0;
+            int contador = 0;
+            foreach (Animal animal in getAll())
+            {
+                if (animal.Edad > edadMinima & animal.Edad < edadMaxima)
+                {
+                    contador++;
+                    pesoTotal += animal.Peso;
+                }
+            }
+            if (contador > 0)
+            {
+                return promedioPeso = pesoTotal / contador;
+            }
+            else
+            {
+                return promedioPeso;
+            }
         }
 
     }

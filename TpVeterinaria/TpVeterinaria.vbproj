@@ -87,6 +87,48 @@
     <Compile Include="Formularios\AltaUsuario.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\Animales.Designer.vb">
+      <DependentUpon>Animales.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Animales.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\AnimalPorDueño.Designer.vb">
+      <DependentUpon>AnimalPorDueño.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\AnimalPorDueño.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes.Designer.vb">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Especies.Designer.vb">
+      <DependentUpon>Especies.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Especies.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\MaxMinPro.Designer.vb">
+      <DependentUpon>MaxMinPro.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\MaxMinPro.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\ReportesUsuario.Designer.vb">
+      <DependentUpon>ReportesUsuario.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\ReportesUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\UsuarioFormu.Designer.vb">
+      <DependentUpon>UsuarioFormu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\UsuarioFormu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -110,6 +152,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\AltaUsuario.resx">
       <DependentUpon>AltaUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Animales.resx">
+      <DependentUpon>Animales.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\AnimalPorDueño.resx">
+      <DependentUpon>AnimalPorDueño.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes.resx">
+      <DependentUpon>Clientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Especies.resx">
+      <DependentUpon>Especies.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\MaxMinPro.resx">
+      <DependentUpon>MaxMinPro.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\ReportesUsuario.resx">
+      <DependentUpon>ReportesUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\UsuarioFormu.resx">
+      <DependentUpon>UsuarioFormu.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -115,9 +115,11 @@ Partial Class FormularioPrincipal
         '
         'MenuPrinicpal
         '
+        Me.MenuPrinicpal.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.MenuPrinicpal.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ClienteToolStripMenuItem, Me.SalirToolStripMenuItem})
         Me.MenuPrinicpal.Location = New System.Drawing.Point(0, 0)
         Me.MenuPrinicpal.Name = "MenuPrinicpal"
+        Me.MenuPrinicpal.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
         Me.MenuPrinicpal.Size = New System.Drawing.Size(1299, 24)
         Me.MenuPrinicpal.TabIndex = 1
         Me.MenuPrinicpal.Text = "MenuStrip1"

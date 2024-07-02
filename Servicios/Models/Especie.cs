@@ -6,24 +6,27 @@ using System.Threading.Tasks;
 
 namespace Servicios.Models
 {
-    internal class Especie
+    public class Especie
     {
+        public int IdEspecie { get; set; }
+        public string Nombre { get; set; }
+        public double EdadMadurez { get; set; }
+        public double Peso { get; set; }
 
-        public int idEspecie { get; set; }
-        public string nombre { get; set; }
-        public int edadMadurez { get; set; }
-        public double peso { get; set; }
 
-
-        public Especie(int idEspecie, string nombre, int edadMadurez, double peso)
+        public Especie(string nombre, int edadMadurez, double peso)
         {
-            this.idEspecie = idEspecie;
-            this.nombre = nombre;
-            this.edadMadurez = edadMadurez;
-            this.peso = peso;
+            Nombre = nombre;
+            EdadMadurez = edadMadurez;
+            Peso = peso;
 
         }
 
-        public Especie() { }
+        public Especie()
+        {
+
+        }
+
+
     }
 }
